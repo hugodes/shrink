@@ -21,31 +21,33 @@ void putheader(FILE *fichierto, int **arbre, FILE *fichierfrom)
 	}
 	//on met le nombre de caractères originaux dans le fichier
 	fputc(nbligne, fichierto);
-	//printf("J'ai mis l'octet de valeur %d dans le fichier", nbligne);
+	//printf("\n\n\n");
+	//printf("J'ai mis l'octet de valeur %d dans le fichier (nbligne)\n\n\n\n", nbligne);
 	//On inscrit sur 4 octets le nombre de caractères total du fichier 
 	//orginial.
 	//printf("nbchar= %d\n", nbchar);
 	intsur4oct(nbchar, tabnbchar);
 	for (i=0; i<4; i++) {
-		//printf("J'ai mi l'octet de valeur %d dans le fichier\n", tabnbchar[i]);
+		//printf("J'ai mi l'octet de valeur %d dans le fichier (intsur4oct)\n", tabnbchar[i]);
 		//printf("Et un autre\n");
 		fputc(tabnbchar[i], fichierto);
 	}
+	//printf("\n\n\n");
 	//printncol(arbre, nbligne, 5);
 	for(i=0; i<5; i++) {
 		if (i != 1) {
 			for (j=0; j<nbligne; j++) {
 				if (arbre[i][j] > 255) {
 					fputc(254, fichierto);
-					//printf("J'ai mi l'octet de valeur %d dans le fichier\n", 254);
+					//printf("J'ai mi l'octet de valeur %d dans le fichier (arbre)\n", 254);
 				}
 				else {
 					fputc(arbre[i][j], fichierto);
-					//printf("J'ai mi l'octet de valeur %d dans le fichier\n", arbre[i][j]);
+					//printf("J'ai mi l'octet de valeur %d dans le fichier (arbre)\n", arbre[i][j]);
 				}
 			}
 			fputc(255, fichierto);
-			//printf("J'ai mi l'octet de valeur %d dans le fichier\n", 255);
+			//printf("J'ai mi l'octet de valeur %d dans le fichier (arbre)\n\n\n", 255);
 		}
 	}
 }

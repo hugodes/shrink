@@ -108,7 +108,7 @@ void creerfichcomp(FILE *fichierfrom, FILE *fichierto, int **arbre, FILE *fichie
 			end++;
 		}
 		else { 
-			//printf("Je veux mettre %c dans le fichier\n", c);
+			//printf("\tJe veux mettre %c dans le fichier\n", c);
 			bufferinit(bufferget, 100);
 			//printf("Fini buffer init\n");
 			putchuffman(c, arbre, bufferget);

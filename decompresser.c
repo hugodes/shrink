@@ -24,7 +24,7 @@ void decompresser(FILE *fichierfrom, FILE *fichierto, int ** arbre) {
 		//needbin dit au programme d'aller chercher un autre octet dans le fichier
 		if (needbin==1) {
 			get=fgetc(fichierfrom);
-			//printf("Je suis allé chercher l'octet de valeur decimale: %d dans le fichier\n", get);
+			//printf("\nJe suis allé chercher l'octet de valeur decimale: %d dans le fichier\n\n", get);
 			inttobin(get, bin, 8);
 			bin[8]=0;
 			needbin = 0;
@@ -35,7 +35,7 @@ void decompresser(FILE *fichierfrom, FILE *fichierto, int ** arbre) {
 		//pour indiquer au programme qu'il devra chercher un nouvel octet à la 
 		//reitération de la boucle
 		//printf("N°%d = ", ind);
-		//printf("%d\n", bin[bin[8]]);
+		//printf("%d---->\t", bin[bin[8]]);
 		//printf("valeur de l'indice courant:%d\n", arbre[0][inddansarbre]);
 		if (bin[8]>=7) {
 			//printf("Je rentre dans la 1ere boucle\n");
@@ -44,7 +44,7 @@ void decompresser(FILE *fichierfrom, FILE *fichierto, int ** arbre) {
 			if (arbre[1][inddansarbre] == 254 && arbre[2][inddansarbre] == 254) {
 				c=arbre[0][inddansarbre];
 				//printf("L'indice %d est une feuille %d\n", inddansarbre, c);
-				//printf("Je me l'octet de valuer decimale : %d \n", c);
+				//printf("Fini de mettre le char de valeur : %d dans le fichier\n", c);
 				fputc(c, fichierto);
 				inddansarbre=indracine;
 				charcount++;
@@ -54,11 +54,11 @@ void decompresser(FILE *fichierfrom, FILE *fichierto, int ** arbre) {
 			//1 pour fils droit
 			else  {
 				if (bin[bin[8]] == 0) {
-					//printf("L'indice %d est un noeud, alons vers le fils gauche\n", inddansarbre);
+					//printf("\tL'indice %d est un noeud, alons vers le fils gauche\n", inddansarbre);
 					inddansarbre=arbre[1][inddansarbre];
 				}
 				else if (bin[bin[8]] == 1) {
-					//printf("L'indice %d est un noeud, alons vers le fils droit\n", inddansarbre);
+					//printf("\tL'indice %d est un noeud, alons vers le fils droit\n", inddansarbre);
 					inddansarbre=arbre[2][inddansarbre];
 				}
 				needbin=1;
@@ -86,13 +86,13 @@ void decompresser(FILE *fichierfrom, FILE *fichierto, int ** arbre) {
 			//1 pour fd
 			//on se place ensuite sur le prochain bit
 			else if (bin[bin[8]] == 1) {
-				//printf("L'indice %d est un noeud, alons vers le fils droit\n", inddansarbre);
+				//printf("\tL'indice %d est un noeud, alons vers le fils droit\n", inddansarbre);
 				inddansarbre=arbre[2][inddansarbre];
 				//printf("\t\tJe ne suis pas sur une feuille\n");
 				bin[8]++;
 			}
 			else if (bin[bin[8]] == 0) {
-				//printf("L'indice %d est un noeud, alons vers le fils gauche\n", inddansarbre);
+				//printf("\tL'indice %d est un noeud, alons vers le fils gauche\n", inddansarbre);
 				inddansarbre=arbre[1][inddansarbre];
 				//printf("\t\tJe ne suis pas sur une feuille\n");
 				bin[8]++;

@@ -1,3 +1,7 @@
-This file is sometimes boring. But you must always read it.
-This is a test.
-now moving on
+Hugo des Longchamps
+
+Avancement: Le projet est terminé.
+
+Utiliser: make shrink' pour construire le projet
+Utiliser: shrink -c 'nom du fichier a compresser' 'nom du fichier compressé' pour compresser.
+Utiliser 'shrink -d 'nom du fichier compressé' 'nom du fichier décompréssé' pour decompreser.

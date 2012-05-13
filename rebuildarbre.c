@@ -9,7 +9,7 @@ void recupnbchar(FILE *fichierfrom) {
 	for (i=0; i<4; i++) {
 		c=fgetc(fichierfrom);
 		//printf("\t1");
-		//printf("J'ai recupéré l'octet num %d de valeur %d\n", i+2, c);
+		//printf("J'ai recupéré l'octet de valeur %d (intsuur4oct)\n", c);
 		inttobin(c, tabtemp, 8);
 		//printf("Le tableau n°%d donne: \n", i);
 		//printinttab(tabtemp, 8);
@@ -18,6 +18,7 @@ void recupnbchar(FILE *fichierfrom) {
 			//printf("%d\n", i*8+j);
 		}
 	}
+	//printf("\n\n\n");
 	//printf("J'ai créé bon tabbin\n");
 	//printinttab(tabbin, 32);
 	nbchar=bintoint(tabbin, 31, 32);
@@ -33,7 +34,7 @@ void rebuildarbre(FILE *fichierfrom, int **arbre) {
 	extern int nbligne;
 	//On saisi le nombre de caracteres independants
 	nbligne = fgetc(fichierfrom);
-	//printf("J'ai pris l'octet de valeur %d dans le ficher\n", nbligne);
+	//printf("J'ai pris l'octet de valeur %d dans le ficher (nbligne)\n\n\n", nbligne);
 	//printf("J'ai recup le premier octet de valeur: %d\n", nbligne);
 	recupnbchar(fichierfrom);
 	for (i=0; i<4; i++) {
@@ -48,6 +49,7 @@ void rebuildarbre(FILE *fichierfrom, int **arbre) {
 			arbre[i][j]=c;
 			j++;
 		}
+		//printf("\n");
 	}
 }
 	

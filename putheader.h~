@@ -1,3 +1,0 @@
-#include "putheader.c"
-
-void putheader(FILE *fichierto, int **arbre);

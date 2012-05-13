@@ -1,1 +1,0 @@
-int distriproba(FILE *fichier, int *tabproba);

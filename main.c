@@ -72,6 +72,7 @@ int main (int argc, char * argv[], char *env[])
 	    //le fichier de depart
 	    rebuildarbre(fichierfrom, arbre);
 	    //printncol(arbre, nbligne, 4);
+	    //printf("\n\n\n");
 	    //Muni de l'abre (notre dictionaire) on reconstruit le fichier
 	    decompresser(fichierfrom, fichierto, arbre);
 	    freearbre(arbre, 4);

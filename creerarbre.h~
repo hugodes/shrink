@@ -1,4 +1,0 @@
-#include "creerarbre.c"
-
-void creerarbre(int *tabproba, int **arbre, int *indracine, int NBCHAR);
-
